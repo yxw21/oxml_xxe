@@ -24,6 +24,7 @@ Blog Posts on the topic:
 [Exploiting CVE-2016-4264 With OXML_XXE](https://www.silentrobots.com/blog/2016/10/02/exploiting-cve-2016-4264-with-oxml-xxe/)
 
 # Build base docker
+
 ```
 docker pull ruby:2.3.5
 docker run -dit -p 4567:4567 ruby:2.3.5
@@ -53,39 +54,6 @@ bundle install
 ruby server.rb -o 0.0.0.0
 ```
 Open http://localhost:4567
-
-# Developer Build
-
-OXML_XXE was re-written in Ruby using Sinatra, Bootstrap, and Haml. Installation should be easy:
-
-- You will need a copy of Ruby. RVM is suggested (https://rvm.io/rvm/install). ruby version 2.3.5 is supported.
-
-- If you are running Ubuntu (or also verified on Kali) you will need a couple of dependencies:
-```
-apt-get install libsqlite3-dev libxslt-dev libxml2-dev zlib1g-dev gcc
-```
-
-To install RVM:
-```
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-\curl -sSL https://get.rvm.io | bash
-```
-
-Install Ruby 2.3.5 with RVM
-```
-rvm install 2.3.5
-rvm use 2.3.5
-```
-
-Install dependencies and start the server:
-```
-cd oxml_xxe
-gem install bundler
-bundle install
-ruby server.rb
-```
-
-Browse to http://127.0.0.1:4567 to get started.
 
 # Main Modes
 
