@@ -23,6 +23,37 @@ Blog Posts on the topic:
 
 [Exploiting CVE-2016-4264 With OXML_XXE](https://www.silentrobots.com/blog/2016/10/02/exploiting-cve-2016-4264-with-oxml-xxe/)
 
+# Build base docker
+```
+docker pull ruby:2.3.5
+docker run -dit -p 4567:4567 ruby:2.3.5
+docker exec -it container_id /bin/bash
+apt-get update
+apt-get install -y vim git
+git clone https://github.com/BuffaloWill/oxml_xxe.git
+cd oxml_xxe
+vim Gemfile (Replace all content)
+```
+```
+source 'https://rubygems.org'
+
+ruby "2.3.5"
+
+gem 'sinatra', '1.4.8'
+gem 'haml'
+gem 'rubyzip'
+gem 'json','1.8.6' 
+gem 'nokogiri'
+gem 'data_mapper', '1.2.0'
+gem 'dm-sqlite-adapter', '1.2.0'
+```
+```
+gem install bundler
+bundle install
+ruby server.rb -o 0.0.0.0
+```
+Open http://localhost:4567
+
 # Developer Build
 
 OXML_XXE was re-written in Ruby using Sinatra, Bootstrap, and Haml. Installation should be easy:
